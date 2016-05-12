@@ -1,0 +1,14 @@
+Package: DBEST
+Type: Package
+Title: Detecting Breakpoints and Estimating Segments in Trend (DBEST)
+Version: 1.0
+Date: 2016-05-12
+Author: Sadegh Jamali, Hristo Tomov
+Maintainer: Hristo Tomov <tomov.hristo@gmail.com>
+Description: An algorithm for analysing vegetation time series with two main application domains - generalising vegetation trends and characterizing vegetation trend changes. The algorithm simplifies the trend into linear segments using one of three parameters: a generalisation threshold parameter, the largest changes, or a threshold for the magnitude of changes. The outputs are the simplified trend, the change type (abrupt or non-abrupt), and the time and magnitude of the change.
+License: GPL-2
+Imports: graphics, stats, zoo
+NeedsCompilation: no
+Packaged: 2016-05-11 23:13:54 UTC; hristo
+Repository: CRAN
+Date/Publication: 2016-05-12 14:47:12
