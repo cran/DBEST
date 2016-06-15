@@ -14,6 +14,8 @@ function(x, figure=1, ...) {
                 if(exists("Start", where=x)){
                         if(length(x$Start)>0) {
                                 for(t in 1:length(x$Start)) {
+                                        abline(v = index(fit_zoo)[x$Start[t]], lty = 2, col="gray")
+                                        
                                         segm <- fit_zoo[x$Start[t]:x$End[t]]
                                         if(x$ChangeType[t] == 1) {
                                                 lines(segm, lwd=2, col="red")
