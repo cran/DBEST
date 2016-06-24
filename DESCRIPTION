@@ -1,14 +1,14 @@
 Package: DBEST
 Type: Package
 Title: Detecting Breakpoints and Estimating Segments in Trend
-Version: 1.2
-Date: 2016-06-15
+Version: 1.3
+Date: 2016-06-24
 Author: Sadegh Jamali, Hristo Tomov
 Maintainer: Hristo Tomov <tomov.hristo@gmail.com>
 Description: A program for analyzing vegetation time series, with two algorithms: 1) change detection algorithm that detects trend changes, determines their type (abrupt or non-abrupt), and estimates their timing, magnitude, number, and direction; 2) generalization algorithm that simplifies the temporal trend into main features. The user can set the number of major breakpoints or magnitude of greatest changes of interest for detection, and can control the generalization process by setting an additional parameter of generalization-percentage.
 License: GPL-2
 Imports: graphics, stats, zoo
 NeedsCompilation: no
-Packaged: 2016-06-15 07:40:29 UTC; hristo
+Packaged: 2016-06-24 07:40:20 UTC; hristo
 Repository: CRAN
-Date/Publication: 2016-06-15 10:59:37
+Date/Publication: 2016-06-24 09:55:38
