@@ -60,10 +60,15 @@ function(x, tt = 'linear', bp = c()) {
                 Q <- qr.Q(z)
                 R <- qr.R(z)
                 
-                p <- qr.solve(R, (t(Q)%*%x) )
+                ##p <- qr.solve(R, (t(Q)%*%x) ) # changed last
+                b2 <- (t(Q)%*%x)
+                p <- mldivide(R, b2, pinv = TRUE)
+                
                 #r <- x - A%*%p
                 param_no <- length(p)
-                H <- A %*% solve( t(A) %*% A) %*% t(A)
+                
+                #H <- A %*% solve( t(A) %*% A) %*% t(A)
+                H <- A %*% pinv( t(A) %*% A) %*% t(A)
                 
                 dfSJ <- length(x) - 1.25 * sum(diag(H)) + 0.5
                 normr <- max(svd(y)$d)

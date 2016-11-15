@@ -5,7 +5,6 @@ function(a) {
 		stop("Argument 'a' must be a numeric or complex matrix.")
 	if (nrow(a) != ncol(a))
 		stop("Matrix 'a' must be square.")
-
 	e <- try(b <- solve(a), silent=TRUE)
 	if (class(e) == "try-error") {
 		warning("Matrix appears to be singular.")
