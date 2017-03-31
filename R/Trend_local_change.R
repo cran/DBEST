@@ -103,21 +103,25 @@ function(data_series,epsilon,vec) {
                         } ## end for
                         
                         RL_Dist <- rbind(Rigth_Dist,Left_Dist)
-
+                        Distance_points <- NULL
+                        
                         if(length(RL_Dist) != 0) {
+                          
                                 RL_DIST <- RL_Dist[,2] 
+                                
+                                size_RL_Dist <- dim(RL_Dist)
+                                
+                                for(i in 1:size_RL_Dist[1]) {
+                                  if(RL_Dist[i,2]>epsilon) {
+                                    Distance_points <- c(Distance_points,RL_Dist[i,1])
+                                  }
+                                }
+                                
                         } else {
                                 RL_DIST <- c()
                         }
                         
-                        Distance_points <- NULL
-                        size_RL_Dist <- dim(RL_Dist)
 
-                        for(i in 1:size_RL_Dist[1]) {
-                                if(RL_Dist[i,2]>epsilon) {
-                                        Distance_points <- c(Distance_points,RL_Dist[i,1])
-                                }
-                        }
                         
                         n_turning <- n_turning + length(Distance_points)
                         f_sign[Distance_points] <- 1

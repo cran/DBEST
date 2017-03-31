@@ -1,4 +1,4 @@
-bb73bcbee0150ce29d9cbb763464a008 *DESCRIPTION
+e428b1e571116c3d9362e667c2e09d9f *DESCRIPTION
 6d673a5c7268559b79f28a31956dbecb *NAMESPACE
 6ee85bd87856160d1a5386610dbb386d *R/BIC_BP.R
 ec787845bdbecbfee457bdf511f20eb1 *R/Compute_epsilon.R
@@ -9,7 +9,7 @@ ec787845bdbecbfee457bdf511f20eb1 *R/Compute_epsilon.R
 52f85213162221dc2b3c52df6de06242 *R/DETREND_SJ.R
 436226ef551b6359c543d54c6b380312 *R/Point_to_line.R
 5c1cd06925da0ed196737ba8d8470324 *R/Pvalue_ith_coeff.R
-f08c884c232c3a5e6e000fd9cd6ac043 *R/Trend_local_change.R
+fbf6f2a97c6c560e8fec4b408ca97d56 *R/Trend_local_change.R
 29d017b119b799d7860b33f9705e9260 *R/f_level_shift.R
 913e01e33a0532b218f68037a35af699 *R/inv.R
 0efca1a77670fb59fe02581304e7eb20 *R/mldivide.R
