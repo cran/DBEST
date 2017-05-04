@@ -114,7 +114,6 @@ data(TREND.Site1)
 data(TREND.Site2)
 
 # Examples for DBEST’s change detection algorithm 
-
 # detecting three greatest changes in NDVI (Fig. 5a, b)
 DBEST.Fig5a <- DBEST(data=NDVI.Site1, data.type="cyclical", 
                  seasonality=12, algorithm="change detection", 
@@ -141,22 +140,20 @@ DBEST.examp2 <- DBEST(data=TREND.Site2, data.type="non-cyclical",
                   second.level.shift=0.2, duration=24, 
                   distance.threshold="default", alpha=0.05, plot="fig1")
 
-
+\dontrun{
 # Examples for DBEST’s generalization algorithm 
-
 # the most-simplified trend 
 DBEST.Fig4a <- DBEST(data=TREND.Site1, data.type="non-cyclical", 
                    seasonality="none", algorithm="generalization", 
                    generalization.percent=100, first.level.shift=0.1, 
                    second.level.shift=0.2, duration=24, 
                    distance.threshold="default", alpha=0.05, plot="fig1")
-
+                   
 DBEST.examp3 <- DBEST(data=NDVI.Site2, data.type="cyclical", 
                   seasonality=12, algorithm="generalization", 
                   generalization.percent=100, first.level.shift=0.1, 
                   second.level.shift=0.2, duration=24, 
                   distance.threshold="default", alpha=0.05, plot="fig1")
-
 
 # one breakpoint included in the generalized trend
 DBEST.Fig4b <- DBEST(data=TREND.Site1, data.type="non-cyclical", 
@@ -196,6 +193,8 @@ DBEST.examp6 <- DBEST(data=NDVI.Site2, data.type="cyclical",
                   generalization.percent=0, first.level.shift=0.1, 
                   second.level.shift=0.2, duration=24, 
                   distance.threshold="default", alpha=0.05, plot="fig1")
+} % end don't run
+                  
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
