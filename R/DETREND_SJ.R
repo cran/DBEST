@@ -48,9 +48,15 @@ function(x, tt = 'linear', bp = c()) {
 		}
 
 
-                z <- qr(A)
+                z <- qr(A, LAPACK = TRUE)
                 Q <- qr.Q(z)
                 R <- qr.R(z)
+
+
+		sgn <- sign(diag(R))
+		#new R and Q to avoid minus
+		R <- diag(sgn) %*% R
+		Q <- Q %*% diag(sgn)
 
 		#p <- R\(Q'*x)# first coefficient is slope of the first segment, and so on, last one is the intercept of the first segment
 		#r <- x - A*p# residuals same as y = x - a*(a\x) in line 52
@@ -67,9 +73,12 @@ function(x, tt = 'linear', bp = c()) {
 		# the norm of the residuals.
 
 		# df = max(0,length(x)-param_no);# d.f. for large data
-		H <- A %*% pinv( t(A) %*% A) %*% t(A)
 
-                dfSJ <- length(x) - 1.25 * sum(diag(H)) + 0.5
+		#H <- A %*% pinv( t(A) %*% A) %*% t(A)
+		SVD <- svd(A)
+		H <- tcrossprod(SVD$u)
+
+                dfSJ <- abs(length(x) - 1.25 * sum(diag(H)) + 0.5)
                 normr <- max(svd(y)$d)
 		# ---- SJ's added section , End
 

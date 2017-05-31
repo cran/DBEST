@@ -33,8 +33,10 @@ function(data_series,n_BP,f_local,n_turning,f_sign,Turning){
                 }
         }
 
-        BP_points <- rep(0,length(data_series))
-        
+
+        #BP_points <- rep(0,length(data_series))
+	BP_points <- rep_len(0,length(data_series))
+
         if(n_BP>0) {
                 BP_points[Index[1:n_BP]] <- 1
         }

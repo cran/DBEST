@@ -40,7 +40,10 @@ function(data_series,beta,f_local,n_turning,f_sign,Turning,BIC_no){
                 }
         }
         
-        BP_points <- rep(0,length(data_series))
+        
+	#BP_points <- rep(0,length(data_series))
+	BP_points <- rep_len(0,length(data_series))
+
         
         if(n_BP > 0) {
                 BP_points[Index[1:n_BP]] <- 1
