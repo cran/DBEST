@@ -1,7 +1,6 @@
 \name{DBEST}
 \alias{DBEST}
 \encoding{UTF-8}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Detecting Breakpoints and Estimating Segments in Trend (DBEST)
 }
@@ -13,7 +12,6 @@ DBEST(data, data.type, seasonality = -1, algorithm, breakpoints.no = -1,
 generalization.percent = -1, change.magnitude = -1, first.level.shift, 
 second.level.shift, duration, distance.threshold, alpha, plot = -1)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
 univariate time-series to be analysed. This should be an object of class 'ts'/'zoo' with a frequency greater than one without NA's or a vector without NA's. If the input data is a vector the algorithm will automatically assign a start year.
@@ -60,9 +58,11 @@ display figures. This parameter could be omitted or set to: "on", "fig1", "fig2"
 An object of the class "DBEST" is a list with elements depending on whether the generalization algorithm or change detection algorithm is used.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
+An object of class \code{"DBEST"}, which is a list. Its elements depend on
+the algorithm used.
+
+For \code{algorithm = "change detection"}, the list contains:
+\describe{
 \item{BreakpointNo}{the number of breakpoints or changes detected.}
 \item{SegmentNo}{the number of segments estimated by the algorithm.}
 \item{Start}{a list with numbers representing the starting points of the changes as time-steps.}
@@ -70,10 +70,26 @@ An object of the class "DBEST" is a list with elements depending on whether the 
 \item{End}{a list with numbers representing the ending points of the changes as time-steps.}
 \item{Change}{a list with the values of the changes.}
 \item{ChangeType}{a list with the types of the changes as numbers which could be 0 or 1. The numbers correspond to a non-abrupt change (0) or abrupt change (1).}
-\item{Significance}{a list with the statistical significances of the changes as numbers which could be 0 or 1. The numbers correspond to a statistically in-significant change (0) or significant change (1).}
+\item{Significance}{a list with the statistical significances of the changes as numbers which could be 0 or 1. The numbers correspond to a statistically insignificant change (0) or significant change (1).}
+\item{Fit}{the estimated trend, fitted by the segments.}
+}
+
+For \code{algorithm = "generalization"}, the list contains:
+\describe{
+\item{SegmentNo}{the number of segments estimated by the algorithm.}
 \item{RMSE}{the calculated Root Mean Squares Error of the fit.}
 \item{MAD}{the calculated Maximum Absolute Difference of the fit.}
+\item{Fit}{the generalized trend.}
+}
 
+For both algorithms the list also contains the following elements:
+\describe{
+\item{Data}{the input time series.}
+\item{Trend}{the trend component of the time series.}
+\item{Seasonal}{the seasonal component (for \code{data.type = "cyclical"}).}
+\item{Remainder}{the remainder component (for \code{data.type = "cyclical"}).}
+\item{f_local}{the trend local change.}
+}
 }
 \references{
 Jamali S, Jönsson P, Eklundh L, Ardö J, Seaquist J (2015). Detecting changes in vegetation trends using time series segmentation. Remote Sensing of Environment, 156, 182-195. http://dx.doi.org/10.1016/j.rse.2014.09.010
@@ -140,7 +156,7 @@ DBEST.examp2 <- DBEST(data=TREND.Site2, data.type="non-cyclical",
                   second.level.shift=0.2, duration=24, 
                   distance.threshold="default", alpha=0.05, plot="fig1")
 
-\dontrun{
+\donttest{
 # Examples for DBEST’s generalization algorithm 
 # the most-simplified trend 
 DBEST.Fig4a <- DBEST(data=TREND.Site1, data.type="non-cyclical", 
@@ -193,9 +209,7 @@ DBEST.examp6 <- DBEST(data=NDVI.Site2, data.type="cyclical",
                   generalization.percent=0, first.level.shift=0.1, 
                   second.level.shift=0.2, duration=24, 
                   distance.threshold="default", alpha=0.05, plot="fig1")
-} % end don't run
+}
                   
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ts}% use one of  RShowDoc("KEYWORDS")
+\keyword{ts}

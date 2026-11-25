@@ -6,7 +6,7 @@ function(a) {
 	if (nrow(a) != ncol(a))
 		stop("Matrix 'a' must be square.")
 	e <- try(b <- solve(a), silent=TRUE)
-	if (class(e) == "try-error") {
+	if (inherits(e, "try-error")) {
 		warning("Matrix appears to be singular.")
 		b <- rep(Inf, length(a))
 		dim(b) <- dim(a)

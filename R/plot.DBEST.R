@@ -1,5 +1,7 @@
 plot.DBEST <-
   function(x, figure=1, ...) {
+    oldpar <- par(no.readonly = TRUE)
+    on.exit(par(oldpar))
     
     if(figure==1) {
       

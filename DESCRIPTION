@@ -1,14 +1,27 @@
 Package: DBEST
 Type: Package
 Title: Detecting Breakpoints and Estimating Segments in Trend
-Version: 1.8
-Date: 2017-10-23
-Author: Sadegh Jamali, Hristo Tomov
-Maintainer: Hristo Tomov <tomov.hristo@gmail.com>
-Description: A program for analyzing vegetation time series, with two algorithms: 1) change detection algorithm that detects trend changes, determines their type (abrupt or non-abrupt), and estimates their timing, magnitude, number, and direction; 2) generalization algorithm that simplifies the temporal trend into main features. The user can set the number of major breakpoints or magnitude of greatest changes of interest for detection, and can control the generalization process by setting an additional parameter of generalization-percentage.
+Version: 1.9
+Date: 2026-10-20
+Authors@R: c(
+    person("Sadegh", "Jamali", email = "sadegh.jamali@tft.lth.se",
+           role = c("aut", "cre")),
+    person("Hristo", "Tomov", role = "aut"))
+Description: Analyzes vegetation time series using two algorithms. The change
+    detection algorithm identifies trend changes, classifies them as abrupt or
+    gradual, and estimates their timing, magnitude, number, and direction. Users
+    can specify the number of major breakpoints or the magnitude threshold for
+    changes of interest. The trend generalization algorithm simplifies the time
+    series to its main features. Users can adjust this process with a
+    generalization-percentage parameter. The methods are described in Jamali et
+    al. (2015) <doi:10.1016/j.rse.2014.09.010>.
 License: GPL-2
+Encoding: UTF-8
 Imports: graphics, stats, zoo
 NeedsCompilation: no
-Packaged: 2017-10-23 13:29:44 UTC; hristo
+Packaged: 2026-11-05 15:40:38 UTC; sadegh
+Author: Sadegh Jamali [aut, cre],
+  Hristo Tomov [aut]
+Maintainer: Sadegh Jamali <sadegh.jamali@tft.lth.se>
 Repository: CRAN
-Date/Publication: 2017-10-23 13:50:47 UTC
+Date/Publication: 2026-11-25 20:50:02 UTC
